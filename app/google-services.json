@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "884746316499",
+    "firebase_url": "https://birusa-68e7f.firebaseio.com",
+    "project_id": "birusa-68e7f",
+    "storage_bucket": "birusa-68e7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884746316499:android:28f55822290aaf30",
+        "android_client_info": {
+          "package_name": "endroad.birusa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884746316499-v3e16skcmio8jkjscigo3u5sclmrtuk0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "endroad.birusa",
+            "certificate_hash": "674c1772f3aeab1ad746b52e527f4bb87bb05416"
+          }
+        },
+        {
+          "client_id": "884746316499-k67sd7p42jp30qahm8o781c46h3pveqe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "endroad.birusa",
+            "certificate_hash": "0c8305b43fdf1b1d13000c522b3dea6008cfbaf9"
+          }
+        },
+        {
+          "client_id": "884746316499-taog1i9sv17piaaake6rgo54hafumj5k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2a9ho2QWSD5CS45R1qe93FXg7wTc9mrE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884746316499-taog1i9sv17piaaake6rgo54hafumj5k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
