@@ -28,7 +28,7 @@ public class EventLayer extends BaseLayer implements ValueEventListener {
     private List<Event> events = new ArrayList<>();
     private List<Marker> markers = new ArrayList<>();
 
-    private eventChangelistener listener;
+    eventChangelistener listener;
 
     public EventLayer(Context context) {
         super.context = context;

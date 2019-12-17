@@ -68,27 +68,27 @@ public class Build {
     public int getColorStroke(Context context)
     {
         if(TextUtils.equals(type, TYPE_HOUSE))
-            return context.getColor(R.color.map_house_stroke);
+            return context.getResources().getColor(R.color.map_house_stroke);
         if(TextUtils.equals(type, TYPE_EDUCATION))
-            return context.getColor(R.color.map_education_stroke);
+            return context.getResources().getColor(R.color.map_education_stroke);
         if(TextUtils.equals(type, TYPE_EVENT))
-            return context.getColor(R.color.map_event_stroke);
+            return context.getResources().getColor(R.color.map_event_stroke);
         if(TextUtils.equals(type, TYPE_OTHER))
-            return context.getColor(R.color.map_other_stroke);
+            return context.getResources().getColor(R.color.map_other_stroke);
 
-        return context.getColor(R.color.map_default_stroke);
+        return context.getResources().getColor(R.color.map_default_stroke);
     }
 
     public int getColorFill(Context context)
     {
         if(TextUtils.equals(type, TYPE_HOUSE))
-            return context.getColor(R.color.map_house_fill);
+            return context.getResources().getColor(R.color.map_house_fill);
         if(TextUtils.equals(type, TYPE_EDUCATION))
-            return context.getColor(R.color.map_education_fill);
+            return context.getResources().getColor(R.color.map_education_fill);
         if(TextUtils.equals(type, TYPE_EVENT))
-            return context.getColor(R.color.map_event_fill);
+            return context.getResources().getColor(R.color.map_event_fill);
         if(TextUtils.equals(type, TYPE_OTHER))
-            return context.getColor(R.color.map_other_fill);
-        return context.getColor(R.color.map_default_fill);
+            return context.getResources().getColor(R.color.map_other_fill);
+        return context.getResources().getColor(R.color.map_default_fill);
     }
 }

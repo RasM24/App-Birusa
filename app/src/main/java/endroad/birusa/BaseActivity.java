@@ -1,9 +1,10 @@
 package endroad.birusa;
 
 import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by dvoly on 16.11.2017.

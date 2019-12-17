@@ -3,8 +3,7 @@ package endroad.birusa;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +19,7 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +29,6 @@ import endroad.birusa.mapLayer.EventLayer;
 import endroad.birusa.mapLayer.RoadLayer;
 import endroad.birusa.model.Build;
 import endroad.birusa.model.Event;
-import endroad.birusa.model.mLatLng;
 
 public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, GoogleMap.OnPolygonClickListener, View.OnClickListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener, EventLayer.eventChangelistener, GoogleMap.OnInfoWindowClickListener {
 
@@ -90,7 +89,7 @@ public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, 
                                 if (TextUtils.isEmpty(text))
                                     text = "Событие..";
 
-                                Event event = new Event(mType.getSelectedItem().toString(), text, mLatLng.get(targetMarker.getPosition()), getTime(), getUid());
+                                Event event = new Event(mType.getSelectedItem().toString(), text, targetMarker.getPosition(), getTime(), getUid());
 
                                 Map<String, Object> values = event.toMap();
                                 Map<String, Object> childUpdates = new HashMap<>();
@@ -195,7 +194,7 @@ public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, 
     @Override
     public boolean onMarkerClick(Marker marker) {
         if (targetPolygone != null)
-            targetPolygone.setFillColor(getContext().getColor(R.color.colorPrimary));
+            targetPolygone.setFillColor(getContext().getResources().getColor(R.color.colorPrimary));
         marker.showInfoWindow();
         return false;
     }
@@ -204,8 +203,8 @@ public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, 
     public void onPolygonClick(Polygon polygon) {
         Build b = (Build) polygon.getTag();
         clearTargetPolygone();
-        polygon.setFillColor(getContext().getColor(R.color.map_target_fill));
-        polygon.setStrokeColor(getContext().getColor(R.color.map_target_stroke));
+        polygon.setFillColor(getContext().getResources().getColor(R.color.map_target_fill));
+        polygon.setStrokeColor(getContext().getResources().getColor(R.color.map_target_stroke));
         targetPolygone = polygon;
 
         polygoneMarker = mMap.addMarker(new MarkerOptions().position(Build.center(polygon))

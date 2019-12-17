@@ -12,11 +12,11 @@ import javax.microedition.khronos.opengles.GL10;
  * Created by dvoly on 07.12.2017.
  */
 
-public abstract class BaseLayer {
+abstract class BaseLayer {
 
     protected Context context;
 
-    protected String getStringFromAssetFile(String name) {
+    String getStringFromAssetFile(String name) {
         byte[] buffer = null;
         InputStream is;
 

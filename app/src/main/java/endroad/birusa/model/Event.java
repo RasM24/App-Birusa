@@ -4,8 +4,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,7 +14,7 @@ public class Event {
 
     private String icon;
     private String text;
-    private mLatLng pos;
+    private LatLng pos;
     private long date;
     private String uid;
 
@@ -48,7 +46,7 @@ public class Event {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Event(String icon, String text, mLatLng pos, long date, String uid) {
+    public Event(String icon, String text, LatLng pos, long date, String uid) {
         this.icon = icon;
         this.text = text;
         this.pos = pos;
@@ -70,7 +68,7 @@ public class Event {
 
     public LatLng getPosGMS()
     {
-        return new LatLng(pos.getLatitude(),pos.getLongitude());
+        return new LatLng(pos.latitude,pos.longitude);
     }
 
     public String getIcon() {
@@ -89,11 +87,11 @@ public class Event {
         this.text = text;
     }
 
-    public mLatLng getPos() {
+    public LatLng getPos() {
         return pos;
     }
 
-    public void setPos(mLatLng pos) {
+    public void setPos(LatLng pos) {
         this.pos = pos;
     }
 

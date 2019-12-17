@@ -1,9 +1,6 @@
 package endroad.birusa;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +11,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import androidx.appcompat.widget.Toolbar;
 import endroad.birusa.model.User;
 
 public class SetProfileActivity extends BaseActivity implements View.OnClickListener {

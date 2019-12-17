@@ -1,13 +1,8 @@
 package endroad.birusa;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,11 +25,11 @@ import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
-import com.vk.sdk.util.VKUtil;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import endroad.birusa.model.User;
 import endroad.birusa.model.UserVK;
 
