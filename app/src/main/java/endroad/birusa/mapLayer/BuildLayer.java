@@ -2,7 +2,6 @@ package endroad.birusa.mapLayer;
 
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
@@ -16,47 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 import endroad.birusa.model.Build;
-import endroad.birusa.R;
-
-import static android.opengl.GLES20.glVertexAttribPointer;
 
 public class BuildLayer extends BaseLayer {
 
-    List<Build> builds = new ArrayList<>();
+	List<Build> builds = new ArrayList<>();
 
-    public BuildLayer(Context context){
-        super.context = context;
-        loadData();
-    }
+	public BuildLayer(Context context) {
+		super.context = context;
+		loadData();
+	}
 
-    void loadData() {
+	void loadData() {
 
-        //Загрузка данных из Assets
-        try {
-            builds.clear();
-            JSONArray array = new JSONArray(getStringFromAssetFile("buildLayer"));
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject object = array.getJSONObject(i);
-                builds.add(Build.fromJson(object));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+		//Загрузка данных из Assets
+		try {
+			builds.clear();
+			JSONArray array = new JSONArray(getStringFromAssetFile("buildLayer"));
+			for (int i = 0; i < array.length(); i++) {
+				JSONObject object = array.getJSONObject(i);
+				builds.add(Build.fromJson(object));
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
 
-    public void draw(GoogleMap googleMap) {
+	public void draw(GoogleMap googleMap) {
 
-        for (Build b : builds) {
+		for (Build b : builds) {
 
-            PolygonOptions polygoneOptions = new PolygonOptions();
-            for (int i = 0; i < b.path.length; i += 2)
-                polygoneOptions.add(new LatLng(b.path[i], b.path[i + 1]));
-            polygoneOptions.strokeColor(b.getColorStroke(context)).strokeWidth(4).fillColor(b.getColorFill(context));
-            polygoneOptions.clickable(true);
-            googleMap.addPolygon(polygoneOptions).setTag(b);
-        }
-    }
-
+			PolygonOptions polygoneOptions = new PolygonOptions();
+			for (int i = 0; i < b.path.length; i += 2)
+				polygoneOptions.add(new LatLng(b.path[i], b.path[i + 1]));
+			polygoneOptions.strokeColor(b.getColorStroke(context)).strokeWidth(4).fillColor(b.getColorFill(context));
+			polygoneOptions.clickable(true);
+			googleMap.addPolygon(polygoneOptions).setTag(b);
+		}
+	}
 
 
 }

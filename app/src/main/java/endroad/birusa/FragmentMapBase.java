@@ -20,6 +20,7 @@ import java.io.InputStream;
 
 import androidx.fragment.app.Fragment;
 import endroad.birusa.model.Event;
+import ru.endroad.birusa.R;
 
 
 public class FragmentMapBase extends Fragment {

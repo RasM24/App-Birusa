@@ -1,8 +1,9 @@
-package endroad.birusa;
+package ru.endroad.feature.auth;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,8 +31,8 @@ import org.json.JSONException;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
-import endroad.birusa.model.User;
-import endroad.birusa.model.UserVK;
+import ru.endroad.feature.auth.model.User;
+import ru.endroad.feature.auth.model.UserVK;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener, OnCompleteListener<AuthResult> {
 
@@ -148,8 +149,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 hideProgressDialog();
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
+                //startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                Toast.makeText(LoginActivity.this, "Авторизация успешна", Toast.LENGTH_SHORT).show();
+                //finish();
             }
 
             @Override

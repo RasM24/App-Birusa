@@ -14,7 +14,8 @@ import com.google.firebase.database.ValueEventListener;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import endroad.birusa.model.Message;
-import endroad.birusa.model.User;
+import ru.endroad.birusa.R;
+import ru.endroad.feature.auth.model.User;
 
 public class ViewHolders {
 

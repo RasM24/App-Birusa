@@ -19,8 +19,8 @@ import java.util.List;
 
 import endroad.birusa.FragmentMapBase;
 import endroad.birusa.MainActivity;
-import endroad.birusa.R;
 import endroad.birusa.model.Event;
+import ru.endroad.birusa.R;
 
 
 public class EventLayer extends BaseLayer implements ValueEventListener {

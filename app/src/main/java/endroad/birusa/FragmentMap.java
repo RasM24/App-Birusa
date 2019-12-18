@@ -29,6 +29,7 @@ import endroad.birusa.mapLayer.EventLayer;
 import endroad.birusa.mapLayer.RoadLayer;
 import endroad.birusa.model.Build;
 import endroad.birusa.model.Event;
+import ru.endroad.birusa.R;
 
 public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, GoogleMap.OnPolygonClickListener, View.OnClickListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener, EventLayer.eventChangelistener, GoogleMap.OnInfoWindowClickListener {
 

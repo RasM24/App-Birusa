@@ -13,6 +13,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
+import ru.endroad.birusa.R;
+import ru.endroad.feature.auth.LoginActivity;
 
 public class MainActivity extends BaseActivity {
 

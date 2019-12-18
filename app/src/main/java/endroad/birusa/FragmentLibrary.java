@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import ru.endroad.birusa.R;
 
 public class FragmentLibrary extends Fragment implements View.OnClickListener {
 

@@ -12,7 +12,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import androidx.appcompat.widget.Toolbar;
-import endroad.birusa.model.User;
+import ru.endroad.birusa.R;
+import ru.endroad.feature.auth.model.User;
 
 public class SetProfileActivity extends BaseActivity implements View.OnClickListener {
 
