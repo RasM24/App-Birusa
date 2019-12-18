@@ -3,6 +3,16 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
 android {
+
+	signingConfigs {
+		mainConfig {
+			keyAlias birusaKeyAlias
+			keyPassword birusaKeyPassword
+			storeFile file(birusaStorePath)
+			storePassword birusaStorePassword
+		}
+	}
+
 	compileSdkVersion 29
 	defaultConfig {
 		applicationId "endroad.birusa"
@@ -17,6 +27,10 @@ android {
 		release {
 			minifyEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.mainConfig
+		}
+		debug {
+			signingConfig signingConfigs.mainConfig
 		}
 	}
 
