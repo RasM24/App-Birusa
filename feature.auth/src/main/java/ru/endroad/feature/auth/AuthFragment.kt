@@ -10,6 +10,7 @@ import ru.endroad.arena.mvi.storage.subscribe
 import ru.endroad.arena.viewlayer.fragment.BaseFragment
 import ru.endroad.feature.auth.mvi.*
 import ru.endroad.feature.auth.presenter.AuthViewModel
+import ru.endroad.navigation.changeRoot
 
 class AuthFragment : BaseFragment() {
 
@@ -29,7 +30,6 @@ class AuthFragment : BaseFragment() {
 		{
 			when (it) {
 				ProgressLoad         -> showProgressDialog()
-				SuccessAuthorization -> authSuccess()
 			}
 		}
 	}

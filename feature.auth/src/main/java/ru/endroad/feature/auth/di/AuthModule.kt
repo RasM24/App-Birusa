@@ -20,5 +20,5 @@ val featureAuthModule = module {
 	single<GetVkProfileUseCase>()
 	single<CreateSessionUseCase>()
 
-	viewModel { AuthViewModel(get(), get(), get(), get(), get(), get()) }
+	viewModel { AuthViewModel(get(), get(), get(), get(), get(), get(), get()) }
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import com.vk.sdk.VKSdk
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+import ru.endroad.birusa.routing.routingModule
 import ru.endroad.feature.auth.di.featureAuthModule
 
 class App : Application() {
@@ -15,7 +16,8 @@ class App : Application() {
 
 		startKoin {
 			androidContext(this@App)
-			modules(featureAuthModule)
+			modules(routingModule,
+					featureAuthModule)
 		}
 	}
 }

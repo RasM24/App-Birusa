@@ -9,3 +9,5 @@ object ClickOnGoogle : Event()
 object ClickOnAnonymous : Event()
 
 class ActivityResultReceive(val requestCode: Int, val resultCode: Int, val data: Intent?) : Event()
+
+object SuccefulAuth : Event()

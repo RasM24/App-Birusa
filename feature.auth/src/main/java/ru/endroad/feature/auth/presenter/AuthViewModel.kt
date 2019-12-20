@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.vk.sdk.VKServiceActivity
 import kotlinx.coroutines.launch
+import ru.endroad.feature.auth.AuthRouter
 import ru.endroad.feature.auth.domain.CreateSessionUseCase
 import ru.endroad.feature.auth.domain.CreateUserUseCase
 import ru.endroad.feature.auth.domain.GetVkProfileUseCase
@@ -19,6 +20,7 @@ class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 					private val createUser: CreateUserUseCase,
 					private val createSession: CreateSessionUseCase,
 					private val firebaseDatabase: DatabaseReference,
+					private val router: AuthRouter,
 					firebaseAuth: FirebaseAuth) : ViewModel() {
 
 	val state: MutableLiveData<AuthState> = MutableLiveData()
@@ -28,7 +30,7 @@ class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 			firebaseAuth.currentUser?.let {
 				state.value = ProgressLoad
 				createSession(it)
-				state.value = SuccessAuthorization
+				event(SuccefulAuth)
 			}
 		}
 	}
@@ -40,6 +42,8 @@ class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 			ClickOnGoogle            -> TODO()
 			ClickOnAnonymous         -> viewModelScope.launch { signAnonymous() }
 			is ActivityResultReceive -> viewModelScope.launch { event.reduce() }
+
+			SuccefulAuth             -> router.openMainScreen()
 		}
 	}
 
@@ -53,7 +57,7 @@ class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 		signInAnonymous()?.let {
 			createUser(it.user.uid, "Anonymous")
 			createSession(it.user)
-			state.value = SuccessAuthorization
+			event(SuccefulAuth)
 		}
 	}
 
@@ -62,7 +66,7 @@ class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 		signInAnonymous()?.let {
 			createUser(it.user.uid, user.name)
 			createSession(it.user)
-			state.value = SuccessAuthorization
+			event(SuccefulAuth)
 		}
 	}
 }
