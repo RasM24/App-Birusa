@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 import ru.endroad.birusa.R;
-import ru.endroad.feature.auth.LoginActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -73,7 +72,7 @@ public class MainActivity extends BaseActivity {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             finish();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            //startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
 

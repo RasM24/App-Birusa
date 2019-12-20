@@ -1,7 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="ru.endroad.feature.auth">
-
-	<application>
-		<activity android:name=".LoginActivity" />
-	</application>
-</manifest>
+<manifest package="ru.endroad.feature.auth"/>

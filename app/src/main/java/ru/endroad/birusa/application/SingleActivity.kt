@@ -1,17 +1,17 @@
 package ru.endroad.birusa.application
 
 import ru.endroad.arena.viewlayer.activity.BaseActivity
-import ru.endroad.arena.viewlayer.extension.startScreen
 import ru.endroad.birusa.R
-import ru.endroad.feature.auth.LoginActivity
+import ru.endroad.feature.auth.AuthFragment
+import ru.endroad.navigation.changeRoot
 
 class SingleActivity : BaseActivity() {
 
-	override val layout = R.layout.activity_main
+	override val layout = R.layout.base_layout
 
 	override val theme = R.style.AppTheme
 
 	override fun onFirstCreate() {
-		startScreen(LoginActivity::class.java)
+		supportFragmentManager.changeRoot(AuthFragment(), R.id.root)
 	}
 }
