@@ -45,7 +45,7 @@ class LoginActivity : BaseActivity() {
 	}
 
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-		viewModel.event(ActivityResultReceieve(requestCode, resultCode, data))
+		viewModel.event(ActivityResultReceive(requestCode, resultCode, data))
 		super.onActivityResult(requestCode, resultCode, data)
 	}
 

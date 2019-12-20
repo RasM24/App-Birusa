@@ -1,105 +1,68 @@
 package ru.endroad.feature.auth.presenter
 
-import android.app.Activity.*
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.*
-import com.vk.sdk.VKAccessToken
+import com.google.firebase.database.DatabaseReference
 import com.vk.sdk.VKServiceActivity
-import com.vk.sdk.api.*
-import org.json.JSONException
-import ru.endroad.feature.auth.model.User
+import kotlinx.coroutines.launch
+import ru.endroad.feature.auth.domain.CreateSessionUseCase
+import ru.endroad.feature.auth.domain.CreateUserUseCase
+import ru.endroad.feature.auth.domain.GetVkProfileUseCase
+import ru.endroad.feature.auth.domain.SignInAnonymousUseCase
 import ru.endroad.feature.auth.model.UserVK
 import ru.endroad.feature.auth.mvi.*
 
-class AuthViewModel : ViewModel() {
-
-	private val mDatabase: DatabaseReference = FirebaseDatabase.getInstance().reference
-	private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
+					private val getVkProfile: GetVkProfileUseCase,
+					private val createUser: CreateUserUseCase,
+					private val createSession: CreateSessionUseCase,
+					private val firebaseDatabase: DatabaseReference,
+					firebaseAuth: FirebaseAuth) : ViewModel() {
 
 	val state: MutableLiveData<AuthState> = MutableLiveData()
 
 	init {
-		mAuth.currentUser?.let {
-			state.value = ProgressLoad
-			::onAuthSuccess
+		viewModelScope.launch {
+			firebaseAuth.currentUser?.let {
+				state.value = ProgressLoad
+				createSession(it)
+				state.value = SuccessAuthorization
+			}
 		}
 	}
 
 	//TODO сделать нормальный биндинг
 	fun event(event: Event) {
 		when (event) {
-			ClickOnVK                 -> TODO()
-			ClickOnGoogle             -> TODO()
-			ClickOnAnonymous          -> signAnonymous()
-			is ActivityResultReceieve -> event.reduce()
+			ClickOnVK                -> TODO()
+			ClickOnGoogle            -> TODO()
+			ClickOnAnonymous         -> viewModelScope.launch { signAnonymous() }
+			is ActivityResultReceive -> viewModelScope.launch { event.reduce() }
 		}
 	}
 
-	private fun ActivityResultReceieve.reduce() {
-		if (requestCode == VKServiceActivity.VKServiceType.Authorization.outerCode) {
-			if (resultCode == RESULT_OK) {
-				val token = VKAccessToken.currentToken()
-				val user = UserVK()
-				user.email = token.email
-				val request = VKApi.users()[VKParameters.from(VKApiConst.FIELDS, "id,first_name,last_name,sex,bdate,city,contacts")]
-				request.executeWithListener(object : VKRequest.VKRequestListener() {
-					override fun onComplete(response: VKResponse) {
-						try {
-							user.jsonLoad(response.json.getJSONArray("response").optJSONObject(0))
-						} catch (e: JSONException) {
-							e.printStackTrace()
-						}
-						authVK(user)
-					}
-
-					override fun onError(error: VKError) {}
-					override fun attemptFailed(request: VKRequest, attemptNumber: Int, totalAttempts: Int) {}
-				})
-			} else if (resultCode == RESULT_CANCELED) {
-				//TODO handle Error
-				//vkCallback.onError(VKObject.getRegisteredObject(data?.getLongExtra(VKSdk.EXTRA_ERROR_ID, 0) ?: 0) as VKError)
-			}
-
-		}
-
+	private suspend fun ActivityResultReceive.reduce() {
+		if (requestCode == VKServiceActivity.VKServiceType.Authorization.outerCode)
+			getVkProfile(requestCode)?.let { authVK(it) }
 	}
 
-	private fun signAnonymous() {
+	private suspend fun signAnonymous() {
 		state.value = ProgressLoad
-		mAuth.signInAnonymously().addOnCompleteListener {
-			if (it.isSuccessful) {
-				writeUser(it.result.user.uid, "Anonymous")
-				onAuthSuccess(it.result.user)
-			}
+		signInAnonymous()?.let {
+			createUser(it.user.uid, "Anonymous")
+			createSession(it.user)
+			state.value = SuccessAuthorization
 		}
 	}
 
-	private fun authVK(user: UserVK) {
-		mDatabase.child("usersVK").child(user.url).setValue(user)
-		mAuth.signInAnonymously().addOnCompleteListener {
-			if (it.isSuccessful) {
-				writeUser(it.result.user.uid, user.name)
-				onAuthSuccess(it.result.user)
-			}
+	private suspend fun authVK(user: UserVK) {
+		firebaseDatabase.child("usersVK").child(user.url).setValue(user)
+		signInAnonymous()?.let {
+			createUser(it.user.uid, user.name)
+			createSession(it.user)
+			state.value = SuccessAuthorization
 		}
-	}
-
-	private fun writeUser(userId: String, name: String) {
-		val user = User(userId, name)
-		mDatabase.child("users").child(userId).setValue(user)
-	}
-
-	private fun onAuthSuccess(user: FirebaseUser) {
-		val queryEvent: Query = mDatabase.child("users").child(user.uid)
-		queryEvent.addListenerForSingleValueEvent(object : ValueEventListener {
-			override fun onDataChange(dataSnapshot: DataSnapshot) {
-				state.value = SuccessAuthorization
-			}
-
-			override fun onCancelled(databaseError: DatabaseError) {}
-		})
 	}
 }

@@ -8,4 +8,4 @@ object ClickOnVK : Event()
 object ClickOnGoogle : Event()
 object ClickOnAnonymous : Event()
 
-class ActivityResultReceieve(val requestCode: Int, val resultCode: Int, val data: Intent?) : Event()
+class ActivityResultReceive(val requestCode: Int, val resultCode: Int, val data: Intent?) : Event()
