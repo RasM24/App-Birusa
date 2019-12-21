@@ -8,7 +8,6 @@ import ru.endroad.feature.auth.AuthFragment
 import ru.endroad.feature.auth.AuthRouter
 import ru.endroad.navigation.changeRoot
 
-//TODO придумать, как протащить fragmentManager
 class AuthRouterImpl(private val fragmentManager: FragmentManager) : AuthRouter {
 
 	override fun openMainScreen() {
