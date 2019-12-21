@@ -1,4 +1,4 @@
-package ru.endroad.feature.auth.di
+package ru.endroad.feature.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase

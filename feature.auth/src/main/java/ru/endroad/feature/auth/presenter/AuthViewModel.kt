@@ -7,8 +7,7 @@ import com.vk.sdk.VKServiceActivity
 import kotlinx.coroutines.launch
 import ru.endroad.feature.auth.AuthRouter
 import ru.endroad.feature.auth.domain.*
-import ru.endroad.feature.auth.model.UserVK
-import ru.endroad.feature.auth.mvi.*
+import ru.endroad.feature.auth.model.*
 
 class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 					private val getVkProfile: GetVkProfileUseCase,
@@ -26,6 +25,7 @@ class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 				state.value = ProgressLoad
 				createSession(it)
 				event(SuccefulAuth)
+				state.value = SuccessAuth
 			}
 		}
 	}
@@ -38,7 +38,10 @@ class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 			ClickOnAnonymous         -> viewModelScope.launch { signAnonymous() }
 			is ActivityResultReceive -> viewModelScope.launch { event.reduce() }
 
-			SuccefulAuth             -> router.openMainScreen()
+			SuccefulAuth             -> {
+				state.value = SuccessAuth
+				router.openMainScreen()
+			}
 		}
 	}
 

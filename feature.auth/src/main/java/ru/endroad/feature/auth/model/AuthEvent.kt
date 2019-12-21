@@ -1,4 +1,4 @@
-package ru.endroad.feature.auth.mvi
+package ru.endroad.feature.auth.model
 
 import android.content.Intent
 
