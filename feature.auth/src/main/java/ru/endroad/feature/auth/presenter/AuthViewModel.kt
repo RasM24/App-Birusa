@@ -52,18 +52,18 @@ class AuthViewModel(private val signInAnonymous: SignInAnonymousUseCase,
 
 	private suspend fun signAnonymous() {
 		state.value = ProgressLoad
-		signInAnonymous()?.let {
-			createUser(it.user.uid, "Anonymous")
-			createSession(it.user)
+		signInAnonymous()?.user?.let {
+			createUser(it.uid, "Anonymous")
+			createSession(it)
 			event(SuccefulAuth)
 		}
 	}
 
 	private suspend fun authVK(user: UserVK) {
 		createVkUser(user)
-		signInAnonymous()?.let {
-			createUser(it.user.uid, user.name)
-			createSession(it.user)
+		signInAnonymous()?.user?.let {
+			createUser(it.uid, user.name)
+			createSession(it)
 			event(SuccefulAuth)
 		}
 	}
