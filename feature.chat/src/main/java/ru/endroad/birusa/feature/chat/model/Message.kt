@@ -1,4 +1,4 @@
-package endroad.birusa.model
+package ru.endroad.birusa.feature.chat.model
 
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
