@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -61,7 +62,8 @@ public class FragmentChat extends Fragment implements View.OnClickListener {
                 vh.bindData(getContext(), message, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (view.getId() == R.id.view_card && ((BaseActivity)getActivity()).getUid().compareTo(message.getUid()) != 0)
+
+                        if (view.getId() == R.id.view_card && getUid().compareTo(message.getUid()) != 0)
                             if ((TextUtils.isEmpty(mTextField.getText().toString()))) {
                                 mTextField.setText(vh.getAuthor() + ", ");
                                 mTextField.setSelection(mTextField.getText().length());
@@ -109,7 +111,7 @@ public class FragmentChat extends Fragment implements View.OnClickListener {
         //writeNewPost(userId, text);
         //writeNewPost(text);
 
-        final String userId = ((BaseActivity)getActivity()).getUid();
+        final String userId = getUid();
         writeNewPost(userId, text);
 
     }
@@ -123,7 +125,7 @@ public class FragmentChat extends Fragment implements View.OnClickListener {
     private void writeNewPost(String userId, String text) {
 
         String key = mRef.child(DB_CHAT).push().getKey();
-        Message message = new Message(text, userId, BaseActivity.getTime());
+        Message message = new Message(text, userId, System.currentTimeMillis() / 1000L);
 
         Map<String, Object> values = message.toMap();
         Map<String, Object> childUpdates = new HashMap<>();
@@ -133,5 +135,7 @@ public class FragmentChat extends Fragment implements View.OnClickListener {
         mTextField.setText("");
         setEditingEnabled(true);
     }
-
+    public String getUid() {
+        return FirebaseAuth.getInstance().getCurrentUser().getUid();
+    }
 }

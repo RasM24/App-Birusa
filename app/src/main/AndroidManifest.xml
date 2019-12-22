@@ -33,9 +33,6 @@
 
 
 		<activity
-			android:name="endroad.birusa.SetProfileActivity"
-			android:label="@string/title_activity_set_profile" />
-		<activity
 			android:name="com.vk.sdk.VKServiceActivity"
 			android:label="ServiceActivity"
 			android:parentActivityName=".application.SingleActivity"
