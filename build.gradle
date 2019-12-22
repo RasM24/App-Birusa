@@ -1,23 +1,69 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-        classpath 'com.google.gms:google-services:4.2.0'
-    }
+	ext.kotlin_version = '1.3.61'
+
+	repositories {
+		google()
+		jcenter()
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:3.5.3'
+		classpath 'com.google.gms:google-services:4.2.0'
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+	}
 }
 
 allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
+	repositories {
+		google()
+		jcenter()
+		mavenCentral()
+		mavenLocal()
+	}
 }
 
 task clean(type: Delete) {
-    delete rootProject.buildDir
+	delete rootProject.buildDir
+}
+
+subprojects {
+	if (project.name == 'app') apply plugin: 'com.android.application'
+	else apply plugin: 'com.android.library'
+
+	apply plugin: 'kotlin-android-extensions'
+	apply plugin: 'kotlin-android'
+
+	android {
+		compileSdkVersion 29
+		buildToolsVersion "29.0.2"
+
+
+		defaultConfig {
+			minSdkVersion 21
+			targetSdkVersion 29
+			versionCode 8
+			versionName "0.3beta"
+
+			testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+			consumerProguardFiles 'consumer-rules.pro'
+		}
+
+		buildTypes {
+			release {
+				minifyEnabled false
+				proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+			}
+		}
+
+	}
+
+	dependencies {
+		implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+		implementation 'androidx.core:core-ktx:1.1.0'
+
+		//TODO Когда библиотеки перепишуться - попробовать имплементировать только в нужные модули
+		implementation 'ru.endroad.camp:fragment-navigation:1.0.0'
+		implementation 'ru.endroad:arena:2.4.0'
+	}
 }

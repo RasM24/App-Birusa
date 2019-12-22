@@ -5,7 +5,6 @@
     <color name="colorAccent">#0094ca</color>
     <color name="main_background">#EEE</color>
 
-
     <color name="map_house_fill">#5c9f42</color>
     <color name="map_house_stroke">#2C6715</color>
     <color name="map_education_fill">#F1F1F1</color>
@@ -20,15 +19,10 @@
     <color name="map_target_fill">#a73c42</color>
     <color name="map_target_stroke">#6D1418</color>
 
-
     <color name = "purple">#6a3e73</color>
     <color name = "purple_b">#41144B</color>
     <color name = "green">#5c9f42</color>
     <color name = "green_b">#2C6715</color>
     <color name = "red">#a73c42</color>
     <color name = "red_b">#6D1418</color>
-
-
-
-
 </resources>

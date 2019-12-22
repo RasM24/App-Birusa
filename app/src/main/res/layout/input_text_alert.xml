@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,7 +12,8 @@
         android:layout_marginTop="8dp"
         android:text="Название"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp" />
 
     <Spinner
         android:id="@+id/type_point"
@@ -25,7 +24,8 @@
         android:entries="@array/type_points"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv"
-        android:spinnerMode="dialog" />
+        android:spinnerMode="dialog"
+        android:layout_marginLeft="8dp" />
 
     <EditText
         android:id="@+id/input_text"
@@ -37,6 +37,7 @@
         android:hint="Название"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type_point" />
+        app:layout_constraintTop_toBottomOf="@+id/type_point"
+        android:layout_marginLeft="8dp" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

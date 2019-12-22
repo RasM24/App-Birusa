@@ -1,4 +1,4 @@
-package endroad.birusa.model;
+package ru.endroad.feature.auth.model;
 
 import com.google.firebase.database.Exclude;
 
@@ -7,8 +7,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-
 
 public class UserVK {
 

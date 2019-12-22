@@ -2,8 +2,6 @@ package endroad.birusa;
 
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,9 +11,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import endroad.birusa.model.Message;
-import endroad.birusa.model.User;
-import endroad.birusa.view.ImageCircle;
+import ru.endroad.birusa.R;
+import ru.endroad.feature.auth.model.User;
 
 public class ViewHolders {
 
