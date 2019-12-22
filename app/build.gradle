@@ -23,8 +23,9 @@ android {
 }
 
 dependencies {
-	implementation project(":feature.auth")
 	implementation project(":feature.navigation-main")
+	implementation project(":feature.auth")
+	implementation project(":feature.chat")
 	implementation project(":component.design")
 
 	//KOIN
