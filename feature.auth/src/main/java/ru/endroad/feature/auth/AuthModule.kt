@@ -2,6 +2,7 @@ package ru.endroad.feature.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import org.koin.dsl.bind
 import org.koin.dsl.module
 import org.koin.experimental.builder.single
 import ru.endroad.arena.viewmodellayer.viewModel

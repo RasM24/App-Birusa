@@ -18,6 +18,8 @@ class SingleActivity : BaseActivity() {
 			single { supportFragmentManager }
 		})
 
+
+
 	}
 
 	override fun onFirstCreate() {
