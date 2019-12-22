@@ -11,7 +11,6 @@ class App : Application() {
 
 	override fun onCreate() {
 		super.onCreate()
-		//vkAccessTokenTracker.startTracking();
 		VKSdk.initialize(this)
 
 		startKoin {
