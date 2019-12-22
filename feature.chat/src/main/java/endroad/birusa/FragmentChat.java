@@ -21,7 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import endroad.birusa.model.Message;
-import ru.endroad.birusa.R;
+import ru.endroad.birusa.feature.chat.R;
 
 public class FragmentChat extends Fragment implements View.OnClickListener {
 
