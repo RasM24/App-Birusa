@@ -9,7 +9,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import endroad.birusa.FragmentMapBase;
-import endroad.birusa.MainActivity;
 import endroad.birusa.model.Event;
 import ru.endroad.birusa.R;
 
@@ -33,13 +31,12 @@ public class EventLayer extends BaseLayer implements ValueEventListener {
     public EventLayer(Context context) {
         super.context = context;
         listener = null;
-        MainActivity.mRef = FirebaseDatabase.getInstance().getReference();
         loadData();
     }
 
 
     private void loadData() {
-        Query queryEventTwit = MainActivity.mRef.child(FragmentMapBase.DB_EVENT).orderByChild("date").startAt(getTime() - Event.TIME_ACTUAL);
+        Query queryEventTwit = FirebaseDatabase.getInstance().getReference().child(FragmentMapBase.DB_EVENT).orderByChild("date").startAt(getTime() - Event.TIME_ACTUAL);
         queryEventTwit.addValueEventListener(this);
     }
 

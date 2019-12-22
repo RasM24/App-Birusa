@@ -1,1 +1,1 @@
-include ':app', ':feature.auth', ':component.design'
+include ':app', ':feature.auth', ':component.design', ':feature.navigation-main'

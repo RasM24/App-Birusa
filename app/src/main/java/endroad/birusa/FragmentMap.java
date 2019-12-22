@@ -20,6 +20,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -85,7 +86,7 @@ public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, 
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 showProgressDialog();
-                                String key = MainActivity.mRef.child(DB_EVENT).push().getKey();
+                                String key = FirebaseDatabase.getInstance().getReference().child(DB_EVENT).push().getKey();
                                 String text = mInput.getText().toString();
                                 if (TextUtils.isEmpty(text))
                                     text = "Событие..";
@@ -96,7 +97,7 @@ public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, 
                                 Map<String, Object> childUpdates = new HashMap<>();
                                 childUpdates.put(DB_EVENT + "/" + key, values);
 
-                                MainActivity.mRef.updateChildren(childUpdates);
+                                FirebaseDatabase.getInstance().getReference().updateChildren(childUpdates);
                                 mInput.setText("");
                                 cancelAddEvent();
 
@@ -278,7 +279,7 @@ public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, 
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 if(eventLayer.deleteEvent(event))
-                                    MainActivity.mRef.child(DB_EVENT).child(event.getPostKey()).removeValue();
+                                    FirebaseDatabase.getInstance().getReference().child(DB_EVENT).child(event.getPostKey()).removeValue();
                             }})
                 .setNegativeButton("Нет",
                         new DialogInterface.OnClickListener() {
