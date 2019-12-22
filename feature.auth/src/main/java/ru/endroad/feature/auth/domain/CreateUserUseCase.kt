@@ -1,7 +1,7 @@
 package ru.endroad.feature.auth.domain
 
 import com.google.firebase.database.DatabaseReference
-import ru.endroad.feature.auth.model.User
+import ru.endroad.birusa.component.session.model.User
 
 class CreateUserUseCase(private val firebaseDatabase: DatabaseReference) {
 

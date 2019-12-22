@@ -27,6 +27,7 @@ dependencies {
 	implementation project(":feature.auth")
 	implementation project(":feature.chat")
 	implementation project(":component.design")
+	implementation project(":component.session")
 
 	//KOIN
 	implementation'org.koin:koin-core:2.0.0'
