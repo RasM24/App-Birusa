@@ -63,7 +63,7 @@ subprojects {
 		implementation 'androidx.core:core-ktx:1.1.0'
 
 		//TODO Когда библиотеки перепишуться - попробовать имплементировать только в нужные модули
-		implementation 'ru.endroad.camp:fragment-navigation:1.0.0'
+		implementation 'ru.endroad.camp:fragment-navigation:1.0.1'
 		implementation 'ru.endroad:arena:2.4.0'
 	}
 }
