@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="type_points">
+		<item>@string/ev_meet</item>
+		<item>@string/ev_book</item>
+		<item>@string/ev_guitar</item>
+		<item>@string/ev_gamepad</item>
+		<item>@string/ev_palatka</item>
+		<item>@string/ev_flag</item>
+		<item>@string/event_it</item>
+		<item>@string/ev_guitar_it</item>
+		<item>@string/ev_gamepad_it</item>
+	</string-array>
+	<string name="ev_meet">Простая встреча</string>
+	<string name="ev_book">Учебное</string>
+	<string name="ev_guitar">Гитарное</string>
+	<string name="ev_gamepad">Игровое</string>
+	<string name="ev_palatka">В палатке</string>
+	<string name="ev_flag">Другое</string>
+	<string name="event_it">IT</string>
+	<string name="ev_guitar_it">ИТ-Гитарное</string>
+	<string name="ev_gamepad_it">ИТ-Игровое</string>
+</resources>

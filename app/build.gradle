@@ -26,6 +26,7 @@ dependencies {
 	implementation project(":feature.navigation-main")
 	implementation project(":feature.auth")
 	implementation project(":feature.chat")
+	implementation project(":feature.map")
 	implementation project(":component.design")
 	implementation project(":component.session")
 
