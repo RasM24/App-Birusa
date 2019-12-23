@@ -1,4 +1,4 @@
-package ru.endroad.birusa.feature.chat
+package ru.endroad.birusa.feature.chat.view
 
 import android.view.View
 import android.widget.TextView
@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import ru.endroad.birusa.component.session.model.User
+import ru.endroad.birusa.feature.chat.R
 import ru.endroad.birusa.feature.chat.model.Message
 
 class ViewHolders {

@@ -4,7 +4,7 @@ import androidx.fragment.app.FragmentManager
 import endroad.birusa.FragmentLibrary
 import endroad.birusa.FragmentMap
 import ru.endroad.birusa.R
-import ru.endroad.birusa.feature.chat.ChatFragment
+import ru.endroad.birusa.feature.chat.view.ChatFragment
 import ru.endroad.birusa.feature.navigation.main.MenuNavigationRouter
 import ru.endroad.navigation.changeRoot
 

@@ -1,4 +1,4 @@
-package ru.endroad.birusa.feature.chat
+package ru.endroad.birusa.feature.chat.view
 
 import android.view.View
 import androidx.core.view.isVisible
@@ -11,12 +11,14 @@ import kotlinx.android.synthetic.main.fragment_chat.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.endroad.arena.mvi.storage.subscribe
 import ru.endroad.arena.viewlayer.fragment.BaseFragment
-import ru.endroad.birusa.feature.chat.ViewHolders.*
+import ru.endroad.birusa.feature.chat.R
+import ru.endroad.birusa.feature.chat.view.ViewHolders.*
 import ru.endroad.birusa.feature.chat.model.InputText
 import ru.endroad.birusa.feature.chat.model.Message
 import ru.endroad.birusa.feature.chat.model.SubmitMessage
 import ru.endroad.birusa.feature.chat.presenter.ChatViewModel
 
+//TODO Нужен объемный рефактор, а может и даже написание с 0
 class ChatFragment : BaseFragment() {
 
 	override val layout = R.layout.fragment_chat
@@ -24,7 +26,8 @@ class ChatFragment : BaseFragment() {
 	private val viewModel by viewModel<ChatViewModel>()
 
 	private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
-	private val query = databaseReference.child(DB_CHAT).limitToLast(MAX_CHAT_MESSAGE)
+	private val query = databaseReference.child(DB_CHAT).limitToLast(
+		MAX_CHAT_MESSAGE)
 
 	private val mAdapter = object : FirebaseRecyclerAdapter<Message, MessageHolder>(
 		Message::class.java,

@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
-import ru.endroad.birusa.feature.chat.ChatFragment
+import ru.endroad.birusa.feature.chat.view.ChatFragment
 import ru.endroad.birusa.feature.chat.model.*
 import java.util.*
 
