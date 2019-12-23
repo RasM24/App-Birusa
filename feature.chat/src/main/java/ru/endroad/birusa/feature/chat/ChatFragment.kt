@@ -1,20 +1,27 @@
 package ru.endroad.birusa.feature.chat
 
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_chat.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.endroad.arena.mvi.storage.subscribe
 import ru.endroad.arena.viewlayer.fragment.BaseFragment
 import ru.endroad.birusa.feature.chat.ViewHolders.*
+import ru.endroad.birusa.feature.chat.model.InputText
 import ru.endroad.birusa.feature.chat.model.Message
-import java.util.*
+import ru.endroad.birusa.feature.chat.model.SubmitMessage
+import ru.endroad.birusa.feature.chat.presenter.ChatViewModel
 
-class FragmentChat : BaseFragment() {
+class ChatFragment : BaseFragment() {
 
 	override val layout = R.layout.fragment_chat
+
+	private val viewModel by viewModel<ChatViewModel>()
 
 	private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
 	private val query = databaseReference.child(DB_CHAT).limitToLast(MAX_CHAT_MESSAGE)
@@ -41,42 +48,24 @@ class FragmentChat : BaseFragment() {
 	}
 
 	override fun setupViewComponents() {
-		view_submit.setOnClickListener { submitMessage() }
+		view_submit.setOnClickListener { viewModel.reduce(SubmitMessage(view_edit_text.text.toString())) }
 
 		(list.layoutManager as? LinearLayoutManager)?.stackFromEnd = true
 
 		list.adapter = mAdapter
 	}
 
-	private fun submitMessage() {
-		val text = view_edit_text.text.toString()
-		if (text.isEmpty()) {
-			view_edit_text.error = "Введите текст"
-			return
+	override fun setupViewModel() {
+		viewModel.state.subscribe(this) { state ->
+			when (state) {
+				is InputText -> renderInputLayout(state)
+			}
 		}
-		setEditingEnabled(false)
-		//writeNewPost(userId, text);
-//writeNewPost(text);
-		val userId = uid
-		writeNewPost(userId, text)
 	}
 
-	private fun setEditingEnabled(enabled: Boolean) { //mTextField.setEnabled(enabled);
-		view_submit.isEnabled = enabled
-	}
-
-	// [START write_fan_out]
-	private fun writeNewPost(userId: String, text: String) {
-		val key = databaseReference.child(DB_CHAT).push().key
-		val message = Message(text,
-							  userId,
-							  System.currentTimeMillis() / 1000L)
-		val values = message.toMap()
-		val childUpdates: MutableMap<String, Any> = HashMap()
-		childUpdates["$DB_CHAT/$key"] = values
-		databaseReference.updateChildren(childUpdates)
-		view_edit_text.setText("")
-		setEditingEnabled(true)
+	private fun renderInputLayout(state: InputText) {
+		state.enabled.let { view_edit_text.isVisible = it }
+		state.error?.let { view_edit_text.error = it }
 	}
 
 	val uid: String
