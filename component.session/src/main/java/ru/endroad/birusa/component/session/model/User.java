@@ -1,4 +1,4 @@
-package ru.endroad.feature.auth.model;
+package ru.endroad.birusa.component.session.model;
 
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
