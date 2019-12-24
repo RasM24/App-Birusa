@@ -1,4 +1,4 @@
-package endroad.birusa.mapLayer;
+package ru.enroad.birusa.feature.map.mapLayer;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import endroad.birusa.model.Road;
+import ru.enroad.birusa.feature.map.model.Road;
 
 public class RoadLayer extends BaseLayer {
 

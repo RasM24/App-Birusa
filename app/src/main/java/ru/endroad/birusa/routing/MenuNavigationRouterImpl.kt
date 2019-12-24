@@ -2,7 +2,7 @@ package ru.endroad.birusa.routing
 
 import androidx.fragment.app.FragmentManager
 import endroad.birusa.FragmentLibrary
-import endroad.birusa.FragmentMap
+import ru.enroad.birusa.feature.map.FragmentMap
 import ru.endroad.birusa.R
 import ru.endroad.birusa.feature.chat.view.ChatFragment
 import ru.endroad.birusa.feature.navigation.main.MenuNavigationRouter

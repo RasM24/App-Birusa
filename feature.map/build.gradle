@@ -1,2 +1,9 @@
 dependencies {
+	implementation project(":component.design")
+
+	api 'com.google.android.gms:play-services-maps:17.0.0'
+	api 'com.google.maps.android:android-maps-utils:0.4.4'
+
+	api 'com.google.firebase:firebase-database:19.2.0'
+	api 'com.google.firebase:firebase-auth:19.2.0'
 }

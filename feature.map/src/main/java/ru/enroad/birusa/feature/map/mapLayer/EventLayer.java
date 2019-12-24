@@ -1,4 +1,4 @@
-package endroad.birusa.mapLayer;
+package ru.enroad.birusa.feature.map.mapLayer;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -16,15 +16,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import endroad.birusa.FragmentMapBase;
-import endroad.birusa.model.Event;
-import ru.endroad.birusa.R;
+import ru.enroad.birusa.feature.map.R;
+import ru.enroad.birusa.feature.map.model.Event;
 
 
 public class EventLayer extends BaseLayer implements ValueEventListener {
 
     private List<Event> events = new ArrayList<>();
     private List<Marker> markers = new ArrayList<>();
+
+    public final static  String DB_EVENT = "events";
 
     eventChangelistener listener;
 
@@ -36,7 +37,7 @@ public class EventLayer extends BaseLayer implements ValueEventListener {
 
 
     private void loadData() {
-        Query queryEventTwit = FirebaseDatabase.getInstance().getReference().child(FragmentMapBase.DB_EVENT).orderByChild("date").startAt(getTime() - Event.TIME_ACTUAL);
+        Query queryEventTwit = FirebaseDatabase.getInstance().getReference().child(DB_EVENT).orderByChild("date").startAt(getTime() - Event.TIME_ACTUAL);
         queryEventTwit.addValueEventListener(this);
     }
 

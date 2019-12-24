@@ -1,4 +1,4 @@
-package endroad.birusa.model;
+package ru.enroad.birusa.feature.map.model;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ru.endroad.birusa.R;
+import ru.enroad.birusa.feature.map.R;
 
 public class Build {
 

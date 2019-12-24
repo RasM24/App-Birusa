@@ -1,12 +1,9 @@
-package endroad.birusa.mapLayer;
+package ru.enroad.birusa.feature.map.mapLayer;
 
 import android.content.Context;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.FloatBuffer;
-
-import javax.microedition.khronos.opengles.GL10;
 
 /**
  * Created by dvoly on 07.12.2017.

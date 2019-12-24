@@ -1,4 +1,4 @@
-package endroad.birusa;
+package ru.enroad.birusa.feature.map;
 
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
@@ -25,12 +25,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-import endroad.birusa.mapLayer.BuildLayer;
-import endroad.birusa.mapLayer.EventLayer;
-import endroad.birusa.mapLayer.RoadLayer;
-import endroad.birusa.model.Build;
-import endroad.birusa.model.Event;
-import ru.endroad.birusa.R;
+import ru.enroad.birusa.feature.map.mapLayer.BuildLayer;
+import ru.enroad.birusa.feature.map.mapLayer.EventLayer;
+import ru.enroad.birusa.feature.map.mapLayer.RoadLayer;
+import ru.enroad.birusa.feature.map.model.Build;
+import ru.enroad.birusa.feature.map.model.Event;
+
+import static ru.enroad.birusa.feature.map.mapLayer.EventLayer.DB_EVENT;
 
 public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, GoogleMap.OnPolygonClickListener, View.OnClickListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener, EventLayer.eventChangelistener, GoogleMap.OnInfoWindowClickListener {
 
