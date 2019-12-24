@@ -33,7 +33,8 @@ import ru.enroad.birusa.feature.map.model.Event;
 
 import static ru.enroad.birusa.feature.map.mapLayer.EventLayer.DB_EVENT;
 
-public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, GoogleMap.OnPolygonClickListener, View.OnClickListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener, EventLayer.eventChangelistener, GoogleMap.OnInfoWindowClickListener {
+//TODO добавление ивентов не работает. Поломалось еще на этапе замены mLatLng на LatLng
+public class FragmentMap extends FragmentMapBase implements OnMapReadyCallback, GoogleMap.OnPolygonClickListener, View.OnClickListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener, EventLayer.EventChangeListener, GoogleMap.OnInfoWindowClickListener {
 
 
     MapView mMapView;

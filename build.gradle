@@ -64,6 +64,6 @@ subprojects {
 
 		//TODO Когда библиотеки перепишуться - попробовать имплементировать только в нужные модули
 		implementation 'ru.endroad.camp:fragment-navigation:1.0.1'
-		implementation 'ru.endroad:arena:2.4.0'
+		implementation 'ru.endroad:arena:2.5.0'
 	}
 }
