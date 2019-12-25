@@ -1,4 +1,4 @@
-package endroad.birusa;
+package ru.endroad.birusa.feature.library;
 
 
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import ru.endroad.birusa.R;
+import ru.endroad.birusa.feature.library.R;
 
 public class FragmentLibrary extends Fragment implements View.OnClickListener {
 
