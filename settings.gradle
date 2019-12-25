@@ -3,5 +3,6 @@ include ':app',
 	':feature.map',
 	':feature.navigation-main',
 	':feature.chat',
+	':feature.library',
 	':component.design',
 	':component.session'
