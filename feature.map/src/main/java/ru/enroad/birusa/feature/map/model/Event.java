@@ -1,4 +1,4 @@
-package endroad.birusa.model;
+package ru.enroad.birusa.feature.map.model;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.database.Exclude;
@@ -7,7 +7,8 @@ import com.google.firebase.database.IgnoreExtraProperties;
 import java.util.HashMap;
 import java.util.Map;
 
-import ru.endroad.birusa.R;
+import ru.enroad.birusa.feature.map.R;
+
 
 @IgnoreExtraProperties
 public class Event {

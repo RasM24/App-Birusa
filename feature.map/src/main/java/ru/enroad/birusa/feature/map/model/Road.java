@@ -1,4 +1,4 @@
-package endroad.birusa.model;
+package ru.enroad.birusa.feature.map.model;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -1,4 +1,4 @@
-package endroad.birusa;
+package ru.enroad.birusa.feature.map;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -19,21 +19,19 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import androidx.fragment.app.Fragment;
-import endroad.birusa.model.Event;
-import ru.endroad.birusa.R;
+import ru.enroad.birusa.feature.map.model.Event;
 
 
 public class FragmentMapBase extends Fragment {
 
-    AlertDialog.Builder mDialogBuilder;
-    AlertDialog.Builder mDialogBuilderRemoveEvent;
-    AlertDialog alertDialog;
-    AlertDialog alertDialogRemoveEvent;
-    public final static  String DB_EVENT = "events";
-    String styleMain;
-    String styleMarker;
-    EditText mInput;
-    Spinner mType;
+    public AlertDialog.Builder mDialogBuilder;
+    public AlertDialog.Builder mDialogBuilderRemoveEvent;
+    public AlertDialog alertDialog;
+    public AlertDialog alertDialogRemoveEvent;
+    public String styleMain;
+    public String styleMarker;
+    public EditText mInput;
+    public Spinner mType;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
