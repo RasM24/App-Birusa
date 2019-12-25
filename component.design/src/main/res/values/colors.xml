@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0094ca</color>
+    <color name="colorPrimaryDark">#074f6d</color>
+    <color name="colorAccent">#0094ca</color>
+    <color name="main_background">#EEE</color>
+
+    <color name="map_house_fill">#5c9f42</color>
+    <color name="map_house_stroke">#2C6715</color>
+    <color name="map_education_fill">#F1F1F1</color>
+    <color name="map_education_stroke">#B5B5B5</color>
+    <color name="map_event_fill">#AD5D03</color>
+    <color name="map_event_stroke">#703C01</color>
+    <color name="map_other_fill">#A1A1A1</color>
+    <color name="map_other_stroke">#323232</color>
+
+    <color name="map_default_fill">#0094cc</color>
+    <color name="map_default_stroke">#006187</color>
+    <color name="map_target_fill">#a73c42</color>
+    <color name="map_target_stroke">#6D1418</color>
+
+    <color name = "purple">#6a3e73</color>
+    <color name = "purple_b">#41144B</color>
+    <color name = "green">#5c9f42</color>
+    <color name = "green_b">#2C6715</color>
+    <color name = "red">#a73c42</color>
+    <color name = "red_b">#6D1418</color>
+</resources>

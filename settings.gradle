@@ -1,1 +1,8 @@
-include ':app'
+include ':app',
+	':feature.auth',
+	':feature.map',
+	':feature.navigation-main',
+	':feature.chat',
+	':feature.library',
+	':component.design',
+	':component.session'
